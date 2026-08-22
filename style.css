@@ -139,6 +139,8 @@ nav a:hover {
     border: 1px solid transparent;
 
     transition: all 0.25s ease;
+
+    cursor: pointer;
 }
 
 .button:hover,
@@ -265,9 +267,6 @@ nav a:hover {
     text-align: left;
 }
 
-
-/* TARJETA */
-
 .product-card {
     overflow: hidden;
 
@@ -289,7 +288,7 @@ nav a:hover {
 }
 
 
-/* ESPACIO PARA LA FOTO */
+/* ESPACIO PARA FOTO */
 
 .product-image {
     width: 100%;
@@ -308,7 +307,7 @@ nav a:hover {
 }
 
 
-/* INFORMACIÓN */
+/* INFORMACIÓN DEL PRODUCTO */
 
 .product-info {
     padding: 25px;
@@ -360,6 +359,219 @@ nav a:hover {
 
 
 /* =========================
+   FICHA DEL PRODUCTO
+========================= */
+
+.product-modal {
+    position: fixed;
+    inset: 0;
+
+    display: none;
+
+    justify-content: center;
+    align-items: center;
+
+    padding: 25px;
+
+    background: rgba(0, 0, 0, 0.75);
+
+    backdrop-filter: blur(10px);
+
+    z-index: 2000;
+}
+
+.product-modal-content {
+    position: relative;
+
+    width: 100%;
+    max-width: 900px;
+    max-height: 90vh;
+
+    display: grid;
+
+    grid-template-columns: 1fr 1fr;
+
+    overflow: auto;
+
+    background: #111827;
+
+    border: 1px solid rgba(255, 255, 255, 0.15);
+
+    border-radius: 24px;
+
+    box-shadow: 0 25px 80px rgba(0, 0, 0, 0.5);
+
+    animation: productModalIn 0.3s ease;
+}
+
+@keyframes productModalIn {
+
+    from {
+        opacity: 0;
+        transform: translateY(25px) scale(0.97);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+
+}
+
+
+/* FOTO DE LA FICHA */
+
+.product-modal-image {
+    min-height: 450px;
+
+    display: flex;
+
+    justify-content: center;
+    align-items: center;
+
+    background: rgba(255, 255, 255, 0.05);
+
+    color: rgba(255, 255, 255, 0.4);
+
+    font-size: 14px;
+}
+
+
+/* INFORMACIÓN DE LA FICHA */
+
+.product-modal-info {
+    padding: 50px;
+
+    display: flex;
+
+    flex-direction: column;
+
+    justify-content: center;
+}
+
+.product-modal-brand {
+    margin-bottom: 12px;
+
+    color: #e8dcc8;
+
+    font-size: 13px;
+
+    text-transform: uppercase;
+
+    letter-spacing: 3px;
+}
+
+.product-modal-info h2 {
+    margin-bottom: 20px;
+
+    font-size: 38px;
+}
+
+.product-modal-description {
+    margin-bottom: 30px;
+
+    color: rgba(255, 255, 255, 0.7);
+
+    line-height: 1.7;
+}
+
+.product-details {
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 12px;
+
+    margin-bottom: 30px;
+
+    color: rgba(255, 255, 255, 0.75);
+}
+
+.product-details strong {
+    color: white;
+}
+
+.product-modal-price {
+    margin-bottom: 25px;
+
+    font-size: 26px;
+
+    font-weight: bold;
+}
+
+
+/* BOTÓN CONSULTAR */
+
+.product-modal-button {
+    width: 100%;
+
+    padding: 15px 20px;
+
+    border: none;
+
+    border-radius: 12px;
+
+    background: white;
+
+    color: #111827;
+
+    font-size: 15px;
+
+    font-weight: bold;
+
+    cursor: pointer;
+
+    transition: 0.25s;
+}
+
+.product-modal-button:hover {
+    background: #e8dcc8;
+
+    transform: translateY(-2px);
+}
+
+
+/* BOTÓN CERRAR */
+
+.close-product {
+    position: absolute;
+
+    top: 18px;
+    right: 20px;
+
+    width: 40px;
+    height: 40px;
+
+    display: flex;
+
+    justify-content: center;
+    align-items: center;
+
+    border: none;
+
+    border-radius: 50%;
+
+    background: rgba(0, 0, 0, 0.35);
+
+    color: white;
+
+    font-size: 28px;
+
+    cursor: pointer;
+
+    transition: 0.25s;
+
+    z-index: 2;
+}
+
+.close-product:hover {
+    background: rgba(255, 255, 255, 0.15);
+
+    transform: rotate(90deg);
+}
+
+
+/* =========================
    FOOTER
 ========================= */
 
@@ -390,6 +602,33 @@ footer {
 /* =========================
    CELULAR
 ========================= */
+
+@media (max-width: 700px) {
+
+    .product-modal {
+        padding: 15px;
+    }
+
+    .product-modal-content {
+        grid-template-columns: 1fr;
+
+        max-height: 92vh;
+    }
+
+    .product-modal-image {
+        min-height: 250px;
+    }
+
+    .product-modal-info {
+        padding: 30px 25px;
+    }
+
+    .product-modal-info h2 {
+        font-size: 30px;
+    }
+
+}
+
 
 @media (max-width: 600px) {
 
