@@ -18,17 +18,24 @@ body {
 
 header {
     width: 100%;
-    padding: 25px 7%;
+    padding: 22px 7%;
     display: flex;
     justify-content: space-between;
     align-items: center;
+
     position: fixed;
     top: 0;
-    background-color: rgba(17, 24, 39, 0.9);
-    z-index: 100;
+    left: 0;
+
+    background: rgba(17, 24, 39, 0.90);
+    backdrop-filter: blur(10px);
+
+    z-index: 1000;
 }
 
 .logo {
+    color: white;
+    text-decoration: none;
     font-size: 26px;
     font-weight: bold;
 }
@@ -41,63 +48,82 @@ nav {
 nav a {
     color: white;
     text-decoration: none;
+    font-size: 15px;
     transition: 0.3s;
 }
 
 nav a:hover {
-    opacity: 0.6;
+    opacity: 0.5;
 }
+
 
 /* PORTADA */
 
 .hero {
     min-height: 100vh;
+
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+
+    text-align: center;
+
     padding: 120px 20px 60px;
 }
 
 .small-title {
-    font-size: 14px;
+    font-size: 13px;
     letter-spacing: 4px;
     opacity: 0.6;
     margin-bottom: 20px;
 }
 
-h1 {
+.hero h1 {
     font-size: clamp(60px, 10vw, 120px);
-    margin-bottom: 20px;
+    margin-bottom: 25px;
 }
 
 .description {
     max-width: 600px;
-    font-size: 20px;
+    font-size: 19px;
     line-height: 1.6;
-    opacity: 0.8;
+    opacity: 0.75;
     margin-bottom: 35px;
 }
 
+
+/* BOTONES */
+
 .button {
+    display: inline-block;
+
     background-color: white;
     color: #111827;
+
     padding: 15px 30px;
+
     border-radius: 30px;
+
     text-decoration: none;
     font-weight: bold;
+
     transition: 0.3s;
 }
 
 .button:hover {
-    transform: translateY(-3px);
+    transform: translateY(-4px);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
 }
+
 
 /* SECCIONES */
 
 .section {
     min-height: 70vh;
+
     padding: 120px 7%;
+
     text-align: center;
 }
 
@@ -106,33 +132,104 @@ h1 {
     margin-bottom: 25px;
 }
 
-.section p {
+.section > p:not(.small-title) {
+    max-width: 650px;
+    margin: 0 auto;
+
     font-size: 18px;
+    line-height: 1.6;
+
     opacity: 0.7;
 }
+
 
 /* MARCAS */
 
 .brands {
     display: flex;
     justify-content: center;
-    gap: 20px;
+    align-items: stretch;
+
+    gap: 25px;
+
     flex-wrap: wrap;
-    margin-top: 50px;
+
+    margin-top: 55px;
 }
 
-.brands div {
-    padding: 30px 50px;
-    border: 1px solid rgba(255,255,255,0.2);
-    border-radius: 15px;
-    font-size: 20px;
-}/* 📱 DISEÑO PARA CELULARES */
+.brand-card {
+    width: 220px;
+    min-height: 140px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    border: 1px solid rgba(255, 255, 255, 0.15);
+
+    border-radius: 18px;
+
+    background: rgba(255, 255, 255, 0.03);
+
+    transition: 0.3s;
+}
+
+.brand-card:hover {
+    transform: translateY(-8px);
+    background: rgba(255, 255, 255, 0.08);
+}
+
+.brand-card h3 {
+    font-size: 22px;
+}
+
+
+/* CATÁLOGO */
+
+.catalog-placeholder {
+    width: 100%;
+    max-width: 900px;
+    height: 250px;
+
+    margin: 50px auto 0;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    border: 1px dashed rgba(255, 255, 255, 0.25);
+
+    border-radius: 20px;
+
+    color: rgba(255, 255, 255, 0.5);
+}
+
+.catalog-placeholder span {
+    font-size: 18px;
+}
+
+
+/* FOOTER */
+
+footer {
+    padding: 30px;
+    text-align: center;
+
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+
+    opacity: 0.5;
+}
+
+
+/* 📱 CELULARES */
 
 @media (max-width: 600px) {
 
     header {
         padding: 18px 20px;
+
         flex-direction: column;
+
         gap: 15px;
     }
 
@@ -142,26 +239,25 @@ h1 {
 
     nav {
         gap: 15px;
+
         flex-wrap: wrap;
         justify-content: center;
     }
 
     nav a {
-        font-size: 14px;
+        font-size: 13px;
     }
 
     .hero {
         padding: 150px 20px 60px;
-        min-height: 100vh;
     }
 
-    h1 {
-        font-size: 60px;
+    .hero h1 {
+        font-size: 58px;
     }
 
     .description {
         font-size: 17px;
-        max-width: 90%;
     }
 
     .section {
@@ -169,21 +265,19 @@ h1 {
     }
 
     .section h2 {
-        font-size: 36px;
+        font-size: 35px;
     }
 
-    .brands {
-        flex-direction: column;
-        align-items: center;
-    }
-
-    .brands div {
+    .brand-card {
         width: 100%;
-        max-width: 300px;
-        padding: 25px;
+        max-width: 320px;
+    }
+
+    .catalog-placeholder {
+        height: 200px;
     }
 
     .button {
         padding: 14px 25px;
     }
-}                                            
+}
