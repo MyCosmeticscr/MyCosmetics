@@ -119,27 +119,38 @@ nav a:hover {
 
 .button,
 .product-button {
-    display: inline-block;
+    display: inline-flex;
 
-    background-color: white;
+    align-items: center;
+    justify-content: center;
+
+    background: white;
     color: #111827;
 
-    padding: 14px 25px;
+    padding: 12px 20px;
 
-    border-radius: 30px;
+    border-radius: 12px;
 
     text-decoration: none;
 
+    font-size: 14px;
     font-weight: bold;
 
-    transition: 0.3s;
+    border: 1px solid transparent;
+
+    transition: all 0.25s ease;
 }
 
 .button:hover,
 .product-button:hover {
-    transform: translateY(-4px);
+    transform: translateY(-3px);
 
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    background: transparent;
+    color: white;
+
+    border-color: rgba(255, 255, 255, 0.5);
+
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25);
 }
 
 
@@ -281,7 +292,7 @@ nav a:hover {
 }
 
 
-/* INFORMACIÓN */
+/* INFORMACIÓN DEL PRODUCTO */
 
 .product-info {
     padding: 25px;
@@ -348,7 +359,7 @@ footer {
 
 
 /* =========================
-   📱 CELULAR
+   📱 TABLET
 ========================= */
 
 @media (max-width: 900px) {
@@ -359,6 +370,10 @@ footer {
 
 }
 
+
+/* =========================
+   📱 CELULAR
+========================= */
 
 @media (max-width: 600px) {
 
@@ -417,6 +432,7 @@ footer {
 
     .brand-card {
         width: 100%;
+
         max-width: 320px;
 
         min-height: 110px;
@@ -442,6 +458,10 @@ footer {
 
     .button {
         padding: 14px 25px;
+    }
+
+    .product-button {
+        width: 100%;
     }
 
 }
