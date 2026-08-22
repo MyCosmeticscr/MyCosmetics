@@ -1,195 +1,209 @@
-```javascript
-const brandButtons = document.querySelectorAll(".brand-card");
-const productCards = document.querySelectorAll(".product-card");
+document.addEventListener("DOMContentLoaded", () => {
 
-const productModal = document.getElementById("product-modal");
+    const brandButtons = document.querySelectorAll(".brand-card");
+    const productCards = document.querySelectorAll(".product-card");
 
-const modalBrand = document.querySelector(".product-modal-brand");
-const modalTitle = document.querySelector(".product-modal-info h2");
-const modalDescription = document.querySelector(".product-modal-description");
-const modalDetails = document.querySelector(".product-details");
-const modalPrice = document.querySelector(".product-modal-price");
+    const productModal = document.getElementById("product-modal");
 
-
-/* =========================
-   PRODUCTOS
-========================= */
-
-const products = {
-
-    "tec-italy": {
-        brand: "Tec Italy",
-        name: "Producto Tec Italy",
-        description:
-            "Aquí aparecerá la descripción completa del producto Tec Italy.",
-        size: "Próximamente",
-        use: "Próximamente",
-        availability: "Consultar",
-        price: "₡00.000"
-    },
-
-    "salerm": {
-        brand: "Salerm",
-        name: "Producto Salerm",
-        description:
-            "Aquí aparecerá la descripción completa del producto Salerm.",
-        size: "Próximamente",
-        use: "Próximamente",
-        availability: "Consultar",
-        price: "₡00.000"
-    },
-
-    "yellow": {
-        brand: "Yellow",
-        name: "Producto Yellow",
-        description:
-            "Aquí aparecerá la descripción completa del producto Yellow.",
-        size: "Próximamente",
-        use: "Próximamente",
-        availability: "Consultar",
-        price: "₡00.000"
-    },
-
-    "lendan": {
-        brand: "Lendan",
-        name: "Producto Lendan",
-        description:
-            "Aquí aparecerá la descripción completa del producto Lendan.",
-        size: "Próximamente",
-        use: "Próximamente",
-        availability: "Consultar",
-        price: "₡00.000"
-    },
-
-    "alfaparf": {
-        brand: "Alfaparf Milano",
-        name: "Producto Alfaparf Milano",
-        description:
-            "Aquí aparecerá la descripción completa del producto Alfaparf Milano.",
-        size: "Próximamente",
-        use: "Próximamente",
-        availability: "Consultar",
-        price: "₡00.000"
-    }
-
-};
+    const modalBrand = document.querySelector(".product-modal-brand");
+    const modalTitle = document.querySelector(".product-modal-info h2");
+    const modalDescription = document.querySelector(".product-modal-description");
+    const modalDetails = document.querySelector(".product-details");
+    const modalPrice = document.querySelector(".product-modal-price");
 
 
-/* =========================
-   FILTRO DE MARCAS
-========================= */
+    /* =========================
+       DATOS DE LOS PRODUCTOS
+    ========================= */
 
-brandButtons.forEach(button => {
+    const products = {
 
-    button.addEventListener("click", () => {
+        "tec-italy": {
+            brand: "Tec Italy",
+            name: "Producto Tec Italy",
+            description: "Aquí aparecerá la descripción completa del producto Tec Italy.",
+            size: "Próximamente",
+            use: "Próximamente",
+            availability: "Consultar",
+            price: "₡00.000"
+        },
 
-        const selectedBrand = button.dataset.brand;
+        "salerm": {
+            brand: "Salerm",
+            name: "Producto Salerm",
+            description: "Aquí aparecerá la descripción completa del producto Salerm.",
+            size: "Próximamente",
+            use: "Próximamente",
+            availability: "Consultar",
+            price: "₡00.000"
+        },
 
-        productCards.forEach(card => {
+        "yellow": {
+            brand: "Yellow",
+            name: "Producto Yellow",
+            description: "Aquí aparecerá la descripción completa del producto Yellow.",
+            size: "Próximamente",
+            use: "Próximamente",
+            availability: "Consultar",
+            price: "₡00.000"
+        },
 
-            const productBrand =
-                card.querySelector(".product-brand").textContent.trim();
+        "lendan": {
+            brand: "Lendan",
+            name: "Producto Lendan",
+            description: "Aquí aparecerá la descripción completa del producto Lendan.",
+            size: "Próximamente",
+            use: "Próximamente",
+            availability: "Consultar",
+            price: "₡00.000"
+        },
 
-            if (productBrand === selectedBrand) {
-                card.style.display = "block";
-            } else {
-                card.style.display = "none";
+        "alfaparf": {
+            brand: "Alfaparf Milano",
+            name: "Producto Alfaparf Milano",
+            description: "Aquí aparecerá la descripción completa del producto Alfaparf Milano.",
+            size: "Próximamente",
+            use: "Próximamente",
+            availability: "Consultar",
+            price: "₡00.000"
+        }
+
+    };
+
+
+    /* =========================
+       BOTONES DE MARCAS
+    ========================= */
+
+    brandButtons.forEach(button => {
+
+        button.addEventListener("click", () => {
+
+            const selectedBrand = button.dataset.brand;
+
+            productCards.forEach(card => {
+
+                const brandElement = card.querySelector(".product-brand");
+
+                if (!brandElement) return;
+
+                const productBrand = brandElement.textContent.trim();
+
+                if (productBrand === selectedBrand) {
+                    card.style.display = "";
+                } else {
+                    card.style.display = "none";
+                }
+
+            });
+
+            const catalog = document.querySelector("#catalogo");
+
+            if (catalog) {
+                catalog.scrollIntoView({
+                    behavior: "smooth"
+                });
             }
 
         });
 
-        document.querySelector("#catalogo").scrollIntoView({
-            behavior: "smooth"
+    });
+
+
+    /* =========================
+       BOTONES "VER PRODUCTO"
+    ========================= */
+
+    const productButtons = document.querySelectorAll(".product-button");
+
+    productButtons.forEach(button => {
+
+        button.addEventListener("click", () => {
+
+            const productId = button.dataset.product;
+
+            const product = products[productId];
+
+            if (!product || !productModal) {
+                return;
+            }
+
+            modalBrand.textContent = product.brand;
+
+            modalTitle.textContent = product.name;
+
+            modalDescription.textContent = product.description;
+
+            modalDetails.innerHTML = `
+                <p>
+                    <strong>Tamaño:</strong>
+                    ${product.size}
+                </p>
+
+                <p>
+                    <strong>Uso:</strong>
+                    ${product.use}
+                </p>
+
+                <p>
+                    <strong>Disponibilidad:</strong>
+                    ${product.availability}
+                </p>
+            `;
+
+            modalPrice.textContent = product.price;
+
+            productModal.style.display = "flex";
+
+            document.body.style.overflow = "hidden";
+
         });
 
     });
 
-});
+
+    /* =========================
+       CERRAR FICHA
+    ========================= */
+
+    window.closeProduct = function () {
+
+        if (!productModal) return;
+
+        productModal.style.display = "none";
+
+        document.body.style.overflow = "";
+
+    };
 
 
-/* =========================
-   ABRIR FICHA
-========================= */
+    /* =========================
+       CERRAR TOCANDO FUERA
+    ========================= */
 
-function openProduct(button) {
+    if (productModal) {
 
-    const productId = button.dataset.product;
+        productModal.addEventListener("click", event => {
 
-    const product = products[productId];
+            if (event.target === productModal) {
+                window.closeProduct();
+            }
 
-    if (!product) {
-        return;
+        });
+
     }
 
 
-    modalBrand.textContent = product.brand;
+    /* =========================
+       CERRAR CON ESC
+    ========================= */
 
-    modalTitle.textContent = product.name;
+    document.addEventListener("keydown", event => {
 
-    modalDescription.textContent = product.description;
+        if (event.key === "Escape") {
+            window.closeProduct();
+        }
 
-    modalDetails.innerHTML = `
-        <p>
-            <strong>Tamaño:</strong>
-            ${product.size}
-        </p>
-
-        <p>
-            <strong>Uso:</strong>
-            ${product.use}
-        </p>
-
-        <p>
-            <strong>Disponibilidad:</strong>
-            ${product.availability}
-        </p>
-    `;
-
-    modalPrice.textContent = product.price;
-
-
-    productModal.style.display = "flex";
-
-    document.body.style.overflow = "hidden";
-
-}
-
-
-/* =========================
-   CERRAR FICHA
-========================= */
-
-function closeProduct() {
-
-    productModal.style.display = "none";
-
-    document.body.style.overflow = "";
-
-}
-
-
-/* =========================
-   CERRAR AL TOCAR FUERA
-========================= */
-
-productModal.addEventListener("click", (event) => {
-
-    if (event.target === productModal) {
-        closeProduct();
-    }
+    });
 
 });
-
-
-/* =========================
-   CERRAR CON ESC
-========================= */
-
-document.addEventListener("keydown", (event) => {
-
-    if (event.key === "Escape") {
-        closeProduct();
-    }
-
-});
-```
