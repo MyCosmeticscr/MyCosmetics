@@ -1,23 +1,49 @@
-```javascript id="y2xqj3"
-document.addEventListener("DOMContentLoaded", () => {
+```javascript
+document.addEventListener("DOMContentLoaded", function () {
 
-    const brandButtons = document.querySelectorAll(".brand-card");
-    const productCards = document.querySelectorAll(".product-card");
-    const productButtons = document.querySelectorAll(".product-button");
+    /* =========================
+       ELEMENTOS
+    ========================= */
 
-    const productModal = document.getElementById("product-modal");
+    const brandButtons =
+        document.querySelectorAll(".brand-card");
 
-    const closeButton = document.querySelector(".close-product");
+    const productCards =
+        document.querySelectorAll(".product-card");
 
-    const modalBrand = document.querySelector(".product-modal-brand");
-    const modalTitle = document.querySelector(".product-modal-info h2");
-    const modalDescription = document.querySelector(".product-modal-description");
-    const modalDetails = document.querySelector(".product-details");
-    const modalPrice = document.querySelector(".product-modal-price");
+    const productButtons =
+        document.querySelectorAll(".product-button");
+
+    const showAllButton =
+        document.getElementById("show-all");
+
+    const productModal =
+        document.getElementById("product-modal");
+
+    const closeButton =
+        document.querySelector(".close-product");
+
+    const modalBrand =
+        document.querySelector(".product-modal-brand");
+
+    const modalTitle =
+        document.querySelector(".product-modal-info h2");
+
+    const modalDescription =
+        document.querySelector(".product-modal-description");
+
+    const modalDetails =
+        document.querySelector(".product-details");
+
+    const modalPrice =
+        document.querySelector(".product-modal-price");
+
+    const modalContactButton =
+        document.querySelector(".product-modal-button");
 
 
     /* =========================
-       PRODUCTOS
+       DATOS DE PRODUCTOS
     ========================= */
 
     const products = {
@@ -25,7 +51,8 @@ document.addEventListener("DOMContentLoaded", () => {
         "tec-italy": {
             brand: "Tec Italy",
             name: "Producto Tec Italy",
-            description: "Aquí aparecerá la descripción completa del producto Tec Italy.",
+            description:
+                "Producto profesional de Tec Italy. Próximamente agregaremos la descripción completa.",
             size: "Próximamente",
             use: "Próximamente",
             availability: "Consultar",
@@ -35,7 +62,8 @@ document.addEventListener("DOMContentLoaded", () => {
         "salerm": {
             brand: "Salerm",
             name: "Producto Salerm",
-            description: "Aquí aparecerá la descripción completa del producto Salerm.",
+            description:
+                "Producto profesional de Salerm. Próximamente agregaremos la descripción completa.",
             size: "Próximamente",
             use: "Próximamente",
             availability: "Consultar",
@@ -45,7 +73,8 @@ document.addEventListener("DOMContentLoaded", () => {
         "yellow": {
             brand: "Yellow",
             name: "Producto Yellow",
-            description: "Aquí aparecerá la descripción completa del producto Yellow.",
+            description:
+                "Producto profesional de Yellow. Próximamente agregaremos la descripción completa.",
             size: "Próximamente",
             use: "Próximamente",
             availability: "Consultar",
@@ -55,7 +84,8 @@ document.addEventListener("DOMContentLoaded", () => {
         "lendan": {
             brand: "Lendan",
             name: "Producto Lendan",
-            description: "Aquí aparecerá la descripción completa del producto Lendan.",
+            description:
+                "Producto profesional de Lendan. Próximamente agregaremos la descripción completa.",
             size: "Próximamente",
             use: "Próximamente",
             availability: "Consultar",
@@ -65,7 +95,8 @@ document.addEventListener("DOMContentLoaded", () => {
         "alfaparf": {
             brand: "Alfaparf Milano",
             name: "Producto Alfaparf Milano",
-            description: "Aquí aparecerá la descripción completa del producto Alfaparf Milano.",
+            description:
+                "Producto profesional de Alfaparf Milano. Próximamente agregaremos la descripción completa.",
             size: "Próximamente",
             use: "Próximamente",
             availability: "Consultar",
@@ -76,42 +107,40 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
     /* =========================
-       FILTRAR POR MARCA
+       FILTRAR MARCA
     ========================= */
 
-    brandButtons.forEach(button => {
+    brandButtons.forEach(function (button) {
 
-        button.addEventListener("click", () => {
+        button.addEventListener("click", function () {
 
-            const selectedBrand = button.dataset.brand;
+            const selectedBrand =
+                button.getAttribute("data-brand");
 
 
-            /* Quitar selección anterior */
+            /* Quitar selección */
 
-            brandButtons.forEach(otherButton => {
+            brandButtons.forEach(function (otherButton) {
+
                 otherButton.classList.remove("active");
+
             });
 
 
-            /* Marcar la seleccionada */
+            /* Seleccionar marca */
 
             button.classList.add("active");
 
 
-            /* Mostrar productos de esa marca */
+            /* Mostrar solamente esa marca */
 
-            productCards.forEach(card => {
+            productCards.forEach(function (card) {
 
-                const brandElement =
-                    card.querySelector(".product-brand");
-
-                if (!brandElement) return;
-
-                const productBrand =
-                    brandElement.textContent.trim();
+                const cardBrand =
+                    card.getAttribute("data-brand");
 
 
-                if (productBrand === selectedBrand) {
+                if (cardBrand === selectedBrand) {
 
                     card.style.display = "";
 
@@ -124,9 +153,10 @@ document.addEventListener("DOMContentLoaded", () => {
             });
 
 
-            /* Ir al catálogo */
+            /* Llevar al catálogo */
 
-            const catalog = document.querySelector("#catalogo");
+            const catalog =
+                document.getElementById("catalogo");
 
             if (catalog) {
 
@@ -142,29 +172,75 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
     /* =========================
-       ABRIR PRODUCTO
+       MOSTRAR TODOS
     ========================= */
 
-    productButtons.forEach(button => {
+    if (showAllButton) {
 
-        button.addEventListener("click", () => {
+        showAllButton.addEventListener("click", function () {
 
-            const productId = button.dataset.product;
+            productCards.forEach(function (card) {
 
-            const product = products[productId];
+                card.style.display = "";
 
-            if (!product) return;
+            });
 
 
-            /* Actualizar ficha */
+            brandButtons.forEach(function (button) {
 
-            modalBrand.textContent = product.brand;
+                button.classList.remove("active");
 
-            modalTitle.textContent = product.name;
+            });
+
+        });
+
+    }
+
+
+    /* =========================
+       ABRIR FICHA
+    ========================= */
+
+    productButtons.forEach(function (button) {
+
+        button.addEventListener("click", function () {
+
+            const productId =
+                button.getAttribute("data-product");
+
+
+            const product =
+                products[productId];
+
+
+            if (!product) {
+
+                console.error(
+                    "Producto no encontrado:",
+                    productId
+                );
+
+                return;
+
+            }
+
+
+            /* Información */
+
+            modalBrand.textContent =
+                product.brand;
+
+            modalTitle.textContent =
+                product.name;
 
             modalDescription.textContent =
                 product.description;
 
+            modalPrice.textContent =
+                product.price;
+
+
+            /* Detalles */
 
             modalDetails.innerHTML = `
 
@@ -186,15 +262,17 @@ document.addEventListener("DOMContentLoaded", () => {
             `;
 
 
-            modalPrice.textContent =
-                product.price;
+            /* Abrir */
 
+            productModal.classList.add("open");
 
-            /* Mostrar ficha */
+            productModal.setAttribute(
+                "aria-hidden",
+                "false"
+            );
 
-            productModal.style.display = "flex";
-
-            document.body.style.overflow = "hidden";
+            document.body.style.overflow =
+                "hidden";
 
         });
 
@@ -202,12 +280,17 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
     /* =========================
-       CERRAR PRODUCTO
+       CERRAR FICHA
     ========================= */
 
-    function closeProduct() {
+    function closeProductModal() {
 
-        productModal.style.display = "none";
+        productModal.classList.remove("open");
+
+        productModal.setAttribute(
+            "aria-hidden",
+            "true"
+        );
 
         document.body.style.overflow = "";
 
@@ -220,36 +303,79 @@ document.addEventListener("DOMContentLoaded", () => {
 
         closeButton.addEventListener(
             "click",
-            closeProduct
+            closeProductModal
         );
 
     }
 
 
-    /* Clic fuera de la ficha */
+    /* Clic fuera */
 
-    productModal.addEventListener("click", event => {
+    if (productModal) {
 
-        if (event.target === productModal) {
+        productModal.addEventListener(
+            "click",
+            function (event) {
 
-            closeProduct();
+                if (
+                    event.target === productModal
+                ) {
+
+                    closeProductModal();
+
+                }
+
+            }
+        );
+
+    }
+
+
+    /* ESC */
+
+    document.addEventListener(
+        "keydown",
+        function (event) {
+
+            if (event.key === "Escape") {
+
+                closeProductModal();
+
+            }
 
         }
+    );
 
-    });
 
+    /* =========================
+       CONSULTAR PRODUCTO
+    ========================= */
 
-    /* Tecla ESC */
+    if (modalContactButton) {
 
-    document.addEventListener("keydown", event => {
+        modalContactButton.addEventListener(
+            "click",
+            function () {
 
-        if (event.key === "Escape") {
+                const productName =
+                    modalTitle.textContent;
 
-            closeProduct();
+                const message =
+                    "Hola, me interesa consultar por el producto: "
+                    + productName;
 
-        }
+                /*
+                 * Por ahora mostramos el mensaje.
+                 * Cuando tengamos el WhatsApp de Mycosmetics,
+                 * aquí podemos conectar directamente el botón.
+                 */
 
-    });
+                alert(message);
+
+            }
+        );
+
+    }
 
 });
 ```
