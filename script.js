@@ -1,4 +1,4 @@
-```javascript   alert("SCRIPT FUNCIONANDO");
+```javascript   
 document.addEventListener("DOMContentLoaded", function () {
 
     /* =========================
