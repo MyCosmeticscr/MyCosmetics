@@ -13,6 +13,8 @@
 
 <body>
 
+    <!-- HEADER -->
+
     <header>
 
         <a href="#inicio" class="logo">
@@ -31,7 +33,7 @@
 
     <main>
 
-        <!-- PORTADA -->
+        <!-- HERO -->
 
         <section id="inicio" class="hero">
 
@@ -44,8 +46,8 @@
             </h1>
 
             <p class="description">
-                Descubre productos profesionales de belleza y cuidado capilar
-                de marcas reconocidas.
+                Descubre productos profesionales de belleza y cuidado
+                capilar de marcas reconocidas.
             </p>
 
             <a href="#catalogo" class="button">
@@ -68,31 +70,55 @@
             </h2>
 
             <p>
-                Trabajamos con marcas reconocidas para ofrecer productos
-                profesionales de calidad.
+                Trabajamos con marcas reconocidas para ofrecer
+                productos profesionales de calidad.
             </p>
 
 
             <div class="brands">
 
-                <button class="brand-card" data-brand="Tec Italy">
+                <button type="button"
+                    class="brand-card"
+                    data-brand="Tec Italy">
+
                     <h3>Tec Italy</h3>
+
                 </button>
 
-                <button class="brand-card" data-brand="Salerm">
+
+                <button type="button"
+                    class="brand-card"
+                    data-brand="Salerm">
+
                     <h3>Salerm</h3>
+
                 </button>
 
-                <button class="brand-card" data-brand="Yellow">
+
+                <button type="button"
+                    class="brand-card"
+                    data-brand="Yellow">
+
                     <h3>Yellow</h3>
+
                 </button>
 
-                <button class="brand-card" data-brand="Lendan">
+
+                <button type="button"
+                    class="brand-card"
+                    data-brand="Lendan">
+
                     <h3>Lendan</h3>
+
                 </button>
 
-                <button class="brand-card" data-brand="Alfaparf Milano">
+
+                <button type="button"
+                    class="brand-card"
+                    data-brand="Alfaparf Milano">
+
                     <h3>Alfaparf Milano</h3>
+
                 </button>
 
             </div>
@@ -102,7 +128,7 @@
 
         <!-- CATÁLOGO -->
 
-        <section id="catalogo" class="section">
+        <section id="catalogo" class="section catalog-section">
 
             <p class="small-title">
                 CATÁLOGO
@@ -117,12 +143,24 @@
             </p>
 
 
+            <button
+                type="button"
+                id="show-all"
+                class="show-all-button">
+
+                Ver todos los productos
+
+            </button>
+
+
             <div class="products">
 
 
                 <!-- TEC ITALY -->
 
-                <article class="product-card">
+                <article
+                    class="product-card"
+                    data-brand="Tec Italy">
 
                     <div class="product-image">
                         <span>Foto próximamente</span>
@@ -146,9 +184,13 @@
                             ₡00.000
                         </p>
 
-                        <button class="product-button"
+                        <button
+                            type="button"
+                            class="product-button"
                             data-product="tec-italy">
+
                             Ver producto
+
                         </button>
 
                     </div>
@@ -158,7 +200,9 @@
 
                 <!-- SALERM -->
 
-                <article class="product-card">
+                <article
+                    class="product-card"
+                    data-brand="Salerm">
 
                     <div class="product-image">
                         <span>Foto próximamente</span>
@@ -182,9 +226,13 @@
                             ₡00.000
                         </p>
 
-                        <button class="product-button"
+                        <button
+                            type="button"
+                            class="product-button"
                             data-product="salerm">
+
                             Ver producto
+
                         </button>
 
                     </div>
@@ -194,7 +242,9 @@
 
                 <!-- YELLOW -->
 
-                <article class="product-card">
+                <article
+                    class="product-card"
+                    data-brand="Yellow">
 
                     <div class="product-image">
                         <span>Foto próximamente</span>
@@ -218,9 +268,13 @@
                             ₡00.000
                         </p>
 
-                        <button class="product-button"
+                        <button
+                            type="button"
+                            class="product-button"
                             data-product="yellow">
+
                             Ver producto
+
                         </button>
 
                     </div>
@@ -230,7 +284,9 @@
 
                 <!-- LENDAN -->
 
-                <article class="product-card">
+                <article
+                    class="product-card"
+                    data-brand="Lendan">
 
                     <div class="product-image">
                         <span>Foto próximamente</span>
@@ -254,9 +310,13 @@
                             ₡00.000
                         </p>
 
-                        <button class="product-button"
+                        <button
+                            type="button"
+                            class="product-button"
                             data-product="lendan">
+
                             Ver producto
+
                         </button>
 
                     </div>
@@ -266,7 +326,9 @@
 
                 <!-- ALFAPARF -->
 
-                <article class="product-card">
+                <article
+                    class="product-card"
+                    data-brand="Alfaparf Milano">
 
                     <div class="product-image">
                         <span>Foto próximamente</span>
@@ -290,9 +352,13 @@
                             ₡00.000
                         </p>
 
-                        <button class="product-button"
+                        <button
+                            type="button"
+                            class="product-button"
                             data-product="alfaparf">
+
                             Ver producto
+
                         </button>
 
                     </div>
@@ -306,7 +372,7 @@
 
         <!-- CONTACTO -->
 
-        <section id="contacto" class="section">
+        <section id="contacto" class="section contact-section">
 
             <p class="small-title">
                 CONTACTO
@@ -317,32 +383,42 @@
             </h2>
 
             <p>
-                Consulta disponibilidad y realiza tu pedido directamente
-                con nosotros.
+                Consulta disponibilidad y realiza tu pedido
+                directamente con nosotros.
             </p>
-
-            <a href="#contacto" class="button">
-                Contactarnos
-            </a>
 
         </section>
 
     </main>
 
 
-    <!-- FICHA -->
+    <!-- FICHA DEL PRODUCTO -->
 
-    <div id="product-modal" class="product-modal">
+    <div
+        id="product-modal"
+        class="product-modal"
+        aria-hidden="true">
 
         <div class="product-modal-content">
 
-            <button class="close-product" type="button">
+            <button
+                type="button"
+                class="close-product"
+                aria-label="Cerrar">
+
                 ×
+
             </button>
 
+
             <div class="product-modal-image">
-                <span>Foto próximamente</span>
+
+                <span>
+                    Foto próximamente
+                </span>
+
             </div>
+
 
             <div class="product-modal-info">
 
@@ -358,14 +434,23 @@
                     Descripción del producto.
                 </p>
 
-                <div class="product-details"></div>
+
+                <div class="product-details">
+
+                </div>
+
 
                 <p class="product-modal-price">
                     ₡00.000
                 </p>
 
-                <button class="product-modal-button" type="button">
+
+                <button
+                    type="button"
+                    class="product-modal-button">
+
                     Consultar producto
+
                 </button>
 
             </div>
@@ -375,6 +460,8 @@
     </div>
 
 
+    <!-- FOOTER -->
+
     <footer>
 
         <p>
@@ -383,6 +470,8 @@
 
     </footer>
 
+
+    <!-- JAVASCRIPT -->
 
     <script src="script.js"></script>
 
