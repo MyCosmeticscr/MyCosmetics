@@ -6,17 +6,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <meta name="description"
-        content="Mycosmetics - Catálogo de productos profesionales de belleza y cuidado capilar.">
-
     <title>Mycosmetics | Productos profesionales</title>
 
     <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
-
-    <!-- ENCABEZADO -->
 
     <header>
 
@@ -125,7 +120,7 @@
             <div class="products">
 
 
-                <!-- PRODUCTO 1 -->
+                <!-- TEC ITALY -->
 
                 <article class="product-card">
 
@@ -140,11 +135,11 @@
                         </p>
 
                         <h3>
-                            Producto de ejemplo
+                            Producto Tec Italy
                         </h3>
 
                         <p class="product-description">
-                            Descripción del producto próximamente.
+                            Producto profesional de Tec Italy.
                         </p>
 
                         <p class="product-price">
@@ -152,7 +147,6 @@
                         </p>
 
                         <button class="product-button"
-                            onclick="openProduct(this)"
                             data-product="tec-italy">
                             Ver producto
                         </button>
@@ -162,7 +156,7 @@
                 </article>
 
 
-                <!-- PRODUCTO 2 -->
+                <!-- SALERM -->
 
                 <article class="product-card">
 
@@ -177,11 +171,11 @@
                         </p>
 
                         <h3>
-                            Producto de ejemplo
+                            Producto Salerm
                         </h3>
 
                         <p class="product-description">
-                            Descripción del producto próximamente.
+                            Producto profesional de Salerm.
                         </p>
 
                         <p class="product-price">
@@ -189,7 +183,6 @@
                         </p>
 
                         <button class="product-button"
-                            onclick="openProduct(this)"
                             data-product="salerm">
                             Ver producto
                         </button>
@@ -199,7 +192,7 @@
                 </article>
 
 
-                <!-- PRODUCTO 3 -->
+                <!-- YELLOW -->
 
                 <article class="product-card">
 
@@ -214,11 +207,11 @@
                         </p>
 
                         <h3>
-                            Producto de ejemplo
+                            Producto Yellow
                         </h3>
 
                         <p class="product-description">
-                            Descripción del producto próximamente.
+                            Producto profesional de Yellow.
                         </p>
 
                         <p class="product-price">
@@ -226,7 +219,6 @@
                         </p>
 
                         <button class="product-button"
-                            onclick="openProduct(this)"
                             data-product="yellow">
                             Ver producto
                         </button>
@@ -236,7 +228,7 @@
                 </article>
 
 
-                <!-- PRODUCTO 4 -->
+                <!-- LENDAN -->
 
                 <article class="product-card">
 
@@ -251,11 +243,11 @@
                         </p>
 
                         <h3>
-                            Producto de ejemplo
+                            Producto Lendan
                         </h3>
 
                         <p class="product-description">
-                            Descripción del producto próximamente.
+                            Producto profesional de Lendan.
                         </p>
 
                         <p class="product-price">
@@ -263,7 +255,6 @@
                         </p>
 
                         <button class="product-button"
-                            onclick="openProduct(this)"
                             data-product="lendan">
                             Ver producto
                         </button>
@@ -273,7 +264,7 @@
                 </article>
 
 
-                <!-- PRODUCTO 5 -->
+                <!-- ALFAPARF -->
 
                 <article class="product-card">
 
@@ -288,11 +279,11 @@
                         </p>
 
                         <h3>
-                            Producto de ejemplo
+                            Producto Alfaparf Milano
                         </h3>
 
                         <p class="product-description">
-                            Descripción del producto próximamente.
+                            Producto profesional de Alfaparf Milano.
                         </p>
 
                         <p class="product-price">
@@ -300,7 +291,6 @@
                         </p>
 
                         <button class="product-button"
-                            onclick="openProduct(this)"
                             data-product="alfaparf">
                             Ver producto
                         </button>
@@ -331,7 +321,7 @@
                 con nosotros.
             </p>
 
-            <a href="#inicio" class="button">
+            <a href="#contacto" class="button">
                 Contactarnos
             </a>
 
@@ -340,13 +330,13 @@
     </main>
 
 
-    <!-- FICHA DEL PRODUCTO -->
+    <!-- FICHA -->
 
     <div id="product-modal" class="product-modal">
 
         <div class="product-modal-content">
 
-            <button class="close-product" onclick="closeProduct()">
+            <button class="close-product" type="button">
                 ×
             </button>
 
@@ -357,42 +347,24 @@
             <div class="product-modal-info">
 
                 <p class="product-modal-brand">
-                    Tec Italy
+                    Marca
                 </p>
 
                 <h2>
-                    Producto de ejemplo
+                    Producto
                 </h2>
 
                 <p class="product-modal-description">
-                    Aquí aparecerá una descripción completa del producto,
-                    sus características y la información más importante.
+                    Descripción del producto.
                 </p>
 
-                <div class="product-details">
-
-                    <p>
-                        <strong>Tamaño:</strong>
-                        Próximamente
-                    </p>
-
-                    <p>
-                        <strong>Uso:</strong>
-                        Próximamente
-                    </p>
-
-                    <p>
-                        <strong>Disponibilidad:</strong>
-                        Consultar
-                    </p>
-
-                </div>
+                <div class="product-details"></div>
 
                 <p class="product-modal-price">
                     ₡00.000
                 </p>
 
-                <button class="product-modal-button">
+                <button class="product-modal-button" type="button">
                     Consultar producto
                 </button>
 
@@ -403,8 +375,6 @@
     </div>
 
 
-    <!-- PIE DE PÁGINA -->
-
     <footer>
 
         <p>
@@ -414,11 +384,9 @@
     </footer>
 
 
-    <!-- JAVASCRIPT -->
-
     <script src="script.js"></script>
 
 </body>
 
 </html>
-
+```
